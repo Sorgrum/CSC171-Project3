@@ -59,6 +59,7 @@ public class Fireworks extends JFrame implements ActionListener, ChangeListener 
 
     private JButton updateButton;
 
+    private Timer timer = new Timer(2500, this);
     /*
      * Default values for fields
      */
@@ -139,13 +140,13 @@ public class Fireworks extends JFrame implements ActionListener, ChangeListener 
         timeToExplodeGroup.add(timeToExplodeLabel);
         timeToExplodeGroup.add(timeToExplode);
 
-        colorPicker = new JComboBox(colorChoices);
+        colorPicker = new JComboBox<>(colorChoices);
         colorPicker.addActionListener(this);
         colorPickerLabel = new JLabel("Color");
         colorGroup.add(colorPickerLabel);
         colorGroup.add(colorPicker);
 
-        typeOfExplosion = new JComboBox(explosionChoices);
+        typeOfExplosion = new JComboBox<>(explosionChoices);
         typeOfExplosion.addActionListener(this);
         typeOfExplosionLabel = new JLabel("Type of Explosion");
         typeOfExplosionGroup.add(typeOfExplosionLabel);
@@ -191,7 +192,7 @@ public class Fireworks extends JFrame implements ActionListener, ChangeListener 
         constraints.gridx = 0;
         constraints.gridy = 0;
 
-        // By adding the controls to the left hand side, smaller screens and a resized window doesn't really matter
+        // By adding the controls to the left hand side, smaller screens and a re-sized window doesn't really matter
         // as much because the controls will almost always be visible and the only thing that changes it the size of
         // the illustration.
         panel.add(controls, constraints);
@@ -286,6 +287,10 @@ public class Fireworks extends JFrame implements ActionListener, ChangeListener 
             updateFields();
         }
 
+        if (arg0.getSource() == timer) {
+            updateFields();
+        }
+
         if (arg0.getSource() == colorPicker) {
             switch ((String)colorPicker.getSelectedItem()) {
                 case "Red":
@@ -354,15 +359,14 @@ public class Fireworks extends JFrame implements ActionListener, ChangeListener 
             for (int i = 0; i < windowHeight/20; i++) {
                 g.setColor(Color.WHITE);
                 int max = windowHeight - offset;
-                int min = offset;
-                int randintX = rand.nextInt((max - min) + 1) + min;
-                int randintY = rand.nextInt(((max - min) + 1) + min);
-                g.drawLine(randintX, randintY, randintX, randintY);
+                int randomIntX = rand.nextInt((max - offset) + 1) + offset;
+                int randomIntY = rand.nextInt(((max - offset) + 1) + offset);
+                g.drawLine(randomIntX, randomIntY, randomIntX, randomIntY);
                 g.setColor(Color.BLACK);
                 g.fillRect(0, 0, getWidth(), offset);
                 g.setColor(Color.WHITE);
             }
-
+            timer.start();
 
 
             // Draw the ticks for the Y-axis
