@@ -1,0 +1,52 @@
+USER GUIDE
+2015-11-16
+
+/*******************
+| Basic Overview
+| Controls
+| Graph
+|*****************************
+
+BASIC OVERVIEW
+
+The application is separated into two different parts. The controls and the graph. The controls house all the options that can be used to manipulate the graph.
+
+CONTROLS - Adjust parameters for the firework
+
+	LAUNCH SPEED:
+		How quickly the firework will be launched..
+
+	LAUNCH ANGLE:
+		The angle that the firework will be launched at.
+
+	TIME TO EXPLOSION:
+		The amount of time that needs to elapse before the firework explodes.
+
+	COLOR:
+		The color of the trajectory of the firework as well as the explosion.
+
+	TYPE OF EXPLOSION:
+		Each choice draws a different representation of an explosion.
+
+	TIME FOR PROJECTILE TO HIT FLOOR:
+		This is a simple informative indicator showing when the projectile will hit the floor to adjust the user to change TIME TO EXPLOSION accordingly.
+
+	UPDATE GRAPH:
+		Redraw the graph using the parameters previously described.
+
+GRAPH - The visual representation of the firework
+
+	X-AXIS:
+		The number on the bottom right hand corner of the graph represents the value corresponding to the tick above it. The purpose for this is to give the user an indication of the scale.
+
+	Y-AXIS:
+		The number in the middle left hand side of the graph represents the value corresponding to the tick directly to the right of this. The purpose for this is to give the user an indication of the scale.
+
+	DASHED LINE:
+		The dashed line represents the path the firework takes before it explodes.
+
+	SHAPE DRAWN AT THE END OF DASHED LINE:
+		This graphic represents the explosion of the firework.
+
+	BACKGROUND DOTS
+		The background dots represent stars against a night sky.
